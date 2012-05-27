@@ -5,11 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "kete_browserid"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "wm@waltermcginnis.com"
-    gem.homepage = "http://github.com/walter/kete_browserid"
+    gem.summary = %Q{An add-on for Kete (http://kete.net.nz) that replaces normal login with a browserid based login.}
+    gem.description = %Q{An add-on for Kete (http://kete.net.nz) that replaces normal login with a browserid based login.}
+    gem.email = "walter@katipo.co.nz"
+    gem.homepage = "http://github.com/kete/kete_browserid"
     gem.authors = ["Walter McGinnis"]
+    gem.add_dependency "system_timer", ">= 0"
+    gem.add_dependency "faraday", ">= 0"
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -20,9 +22,7 @@ end
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+  puts "Tests coming."
 end
 
 begin

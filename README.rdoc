@@ -1,16 +1,38 @@
 = kete_browserid
 
-Description goes here.
+An add-on for Kete (http://kete.net.nz) that replaces normal login with a browserid based login.
+
+== Requirements
+
+Kete 1.4 or using the master branch.
+
+Uses the gem Faraday to make requests to browserid.org.
+
+== Limitations
+
+Not currently compatible with Kete's "anonymous actions" functionality as it replaces the login form with browserid.org form. Might also have an issue with kete_translatable_content add-on gem due to possible conflict with javascript (guess).
+
+== Installation
+
+You'll want to check to make sure that all your users have unique email addresses first:
+
+script/console # specify production if necessary
+
+>> User.has_non_unique_emails?
+User.has_non_unique_emails?
+=> false
+
+If this method returns true, you'll need to look at your user emails and come up with plan to change them. This gem puts a "validates_uniqueness" on email once it is in place. Actually if you have legacy users, you'll want to come up with a plan to move them to BrowserID logins anyway.
 
 == Note on Patches/Pull Requests
  
 * Fork the project.
-* Make your feature addition or bug fix.
+* Make your feature addition or bug fix in a corresponding branch (even better, make an issue first and name the branch with the ticket number in it)
 * Add tests for it. This is important so I don't break it in a
   future version unintentionally.
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+* Send me a pull request.
 
 == Copyright
 

@@ -19,8 +19,6 @@ You'll want to check to make sure that all your users have unique email addresse
 script/console # specify production if necessary
 
 >> User.has_non_unique_emails?
-User.has_non_unique_emails?
-=> false
 
 If this method returns true, you'll need to look at your user emails and come up with plan to change them. This gem puts a "validates_uniqueness" on email once it is in place. Actually if you have legacy users, you'll want to come up with a plan to move them to BrowserID logins anyway.
 
@@ -36,4 +34,4 @@ If this method returns true, you'll need to look at your user emails and come up
 
 == Copyright
 
-Copyright (c) 2012 Walter McGinnis. See LICENSE for details.
+Copyright (c) 2012 Horowhenua Library Trust. See LICENSE for details.

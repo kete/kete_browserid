@@ -32,6 +32,10 @@ If this method returns true, you'll need to look at your user emails and come up
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request.
 
+== Credits
+
+This work was funded by Aotearoa New Zealand Association of Social Workers (ANZASW).
+
 == Copyright
 
 Copyright (c) 2012 Horowhenua Library Trust. See LICENSE for details.

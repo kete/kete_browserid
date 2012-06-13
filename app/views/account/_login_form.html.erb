@@ -1,0 +1,52 @@
+<fieldset>
+  <% unless ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
+  <h3><%= t '.use_browserid' -%></h3>
+  <% end -%>
+
+  <p><%= t '.register_via_browserid',
+	 :register_link => link_for_register_via_browserid -%></p>
+  <h4><%= link_for_login_with_browserid -%></h4>
+</fieldset>
+
+<% unless ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
+<p>&nbsp;</p>
+<fieldset>
+  <h3><%= t '.or_standard_login' -%></h3>
+
+  <!--[form:login]-->
+  <% if Kete.is_configured? -%>
+  <p><%=t '.register',
+          :register_link => link_to(t('.register_link'),
+                                    { :controller => 'account',
+                                      :action => 'signup',
+                                      :urlified_name => @site_basket.urlified_name},
+                                    :tabindex => '1') %></p>
+  <% else -%>
+  <p><%=t '.admin_details' %></p>
+  <% end -%>
+
+  <div class="form-element">
+    <label for="login"><%=t '.login' %></label>
+    <%= text_field_tag 'login', nil, :tabindex => '1' %>
+  </div>
+
+  <div class="form-element">
+    <label for="password"><%=t '.password' %></label>
+    <%= password_field_tag 'password', nil, :tabindex => '1' %>
+  </div>
+
+  <% if Kete.is_configured? -%>
+  <div class="form-element">
+    <label for="remember_me"><%=t '.remember_me' -%></label>
+    <%= check_box_tag 'remember_me', "1", false, :tabindex => '1' %>
+  </div>
+
+  <p><%=t '.forgot_password',
+          :forgot_password_link => link_to(t('.forgot_password_link'),
+                                             { :controller => 'account',
+                                               :action => 'forgot_password',
+                                               :urlified_name => @site_basket.urlified_name},
+                                             :tabindex => '1') -%></p>
+  <% end -%>
+</fieldset>
+<% end -%>

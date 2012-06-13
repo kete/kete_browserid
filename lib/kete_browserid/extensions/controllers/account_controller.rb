@@ -2,6 +2,8 @@ require 'faraday'
 
 # add browserid_login action
 AccountController.class_eval do
+  before_filter :set_add_on_scripts_and_links
+
   skip_before_filter :verify_authenticity_token, :only => :login_via_browserid
 
   # browserid_login action will:

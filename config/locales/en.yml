@@ -1,6 +1,10 @@
 ---
 en:
   account:
+    login_form:
+      or_standard_login: "Or use standard {{t.base.login}} {{t.base.form}}"
+      register_via_browserid: "Are {{t.base.you}} {{t.base.registered}}? {{t.base.you.capitalize}} will need to {{register_link}} first before {{t.base.you}} can {{t.base.login}}."
+      use_browserid: "Use {{t.base.browserid}}"
     signup_as_browserid:
       second_step: "Now that you have created your {{t.base.browserid}}, we need to ask you a few more questions before completing your sign up on the site."
       short_name: "{{t.base.short_name.capitalize}}"
@@ -19,6 +23,10 @@ en:
     signup_as_browserid:
       signed_up_login_with_browserid: "{{t.base.thank_you}}! Now that your signup is complete, you may now {{t.base.login}}."
   application_helper:
+    link_for_login_with_browserid:
+      login_with_browserid: "{{t.application_helper.link_to_login.login_with_browserid}}"
+    link_for_register_via_browserid:
+      register_via_browserid: "{{t.application_helper.link_to_register.register_via_browserid}}"
     link_to_login:
       login_with_browserid: "{{t.base.login.capitalize}} with {{t.base.browserid}}"
     link_to_register:

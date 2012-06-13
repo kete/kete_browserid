@@ -3,7 +3,6 @@ ApplicationController.class_eval do
 
   # set up our browserid javascript loading
   def set_add_on_scripts_and_links
-
     browserid_login_url = "/#{@site_basket.urlified_name}/account/login_via_browserid"
     head_js = " <script src=\"https://browserid.org/include.js\" type=\"text/javascript\"></script>"
 

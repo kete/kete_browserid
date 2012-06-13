@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Walter McGinnis"]
-  s.date = %q{2012-05-27}
+  s.date = %q{2012-06-13}
   s.description = %q{An add-on for Kete (http://kete.net.nz) that replaces normal login with a browserid based login.}
   s.email = %q{walter@katipo.co.nz}
   s.extra_rdoc_files = [
@@ -23,8 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "app/helpers/trackable_item_shelf_locations_helper.rb",
-     "app/helpers/trackable_items_helper.rb",
+     "app/views/account/_login_form.html.erb",
      "app/views/account/signup_as_browserid.html.erb",
      "config/locales/en.yml",
      "kete_browserid.gemspec",

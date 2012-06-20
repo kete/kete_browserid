@@ -1,0 +1,3 @@
+<% if !::KeteBrowserid::REPLACE_EXISTING_LOGIN || (Kete.is_configured? && anonymous_ok_for?(session[:return_to])) -%>
+  <div class="wrap"><%= submit_tag @button_text, { :class => @button_classes.join(' '), :tabindex => '1'} %></div>
+<% end -%>

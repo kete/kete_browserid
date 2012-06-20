@@ -25,13 +25,23 @@ AccountController.class_eval do
     @user = User.find_by_email(browserid_email)
 
     if @user
-      self.current_user = @user
-      move_session_searches_to_current_user
-      flash[:notice] = t('account_controller.login_via_browserid.logged_in')
-      redirect_back_or_default({ :locale => current_user.locale,
-                                 :urlified_name => @site_basket.urlified_name,
-                                 :controller => 'account',
-                                 :action => 'index' }, current_user.locale)
+      # make sure the user has been activated before logging them in
+      if @user.activated_at.blank?
+        flash[:notice] = t('account_controller.login_via_browserid.not_yet_activated')
+        redirect_back_or_default({ :locale => I18n.locale,
+                                   :urlified_name => @current_basket.urlified_name,
+                                   :controller => 'account',
+                                   :action => 'index' }, I18n.locale)
+        
+      else
+        self.current_user = @user
+        move_session_searches_to_current_user
+        flash[:notice] = t('account_controller.login_via_browserid.logged_in')
+        redirect_back_or_default({ :locale => current_user.locale,
+                                   :urlified_name => @current_basket.urlified_name,
+                                   :controller => 'account',
+                                   :action => 'index' }, current_user.locale)
+      end
     else
       flash[:notice] = t('account_controller.login_via_browserid.no_account_matches')
       redirect_to :action => :signup_as_browserid, :email => browserid_email
@@ -86,7 +96,7 @@ AccountController.class_eval do
     flash[:notice] = t('account_controller.signup_as_browserid.signed_up_login_with_browserid')
     
     redirect_back_or_default({ :locale => params[:user][:locale],
-                               :urlified_name => @site_basket.urlified_name,
+                               :urlified_name => @current_basket.urlified_name,
                                :controller => 'account',
                                :action => 'index' })
   rescue ActiveRecord::RecordInvalid

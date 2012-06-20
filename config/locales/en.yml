@@ -20,6 +20,7 @@ en:
     login_via_browserid:
       logged_in: "{{t.account_controller.login.logged_in}}"
       no_account_matches: "We don't have an account matching your {{t.base.browserid}} login yet. Please sign up."
+      not_yet_activated: "This {{t.base.account}} has not been {{t.base.activated}} yet. You should receive an {{t.base.email}} when it has been. After that you will be able to {{t.base.login}}."
     signup_as_browserid:
       signed_up_login_with_browserid: "{{t.base.thank_you}}! Now that your signup is complete, you may now {{t.base.login}}."
   application_helper:

@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{kete_browserid}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Walter McGinnis"]
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "app/views/account/_login_button.html.erb",
      "app/views/account/_login_form.html.erb",
      "app/views/account/signup_as_browserid.html.erb",
      "config/locales/en.yml",

@@ -11,7 +11,8 @@ User.class_eval do
   alias :creating_with_browserid? :creating_with_browserid
 
   def password_required?
-    !creating_with_browserid? && (crypted_password.blank? || !password.blank?)
+    new_record? &&
+      !creating_with_browserid? &&
+      (crypted_password.blank? || !password.blank?)
   end
 end
-

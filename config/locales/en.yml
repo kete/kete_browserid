@@ -2,9 +2,14 @@
 en:
   account:
     login_form:
+      generate_password: "Click Here"
       or_standard_login: "Or use standard {{t.base.login}} {{t.base.form}}"
       register_via_browserid: "Are {{t.base.you}} {{t.base.registered}}? {{t.base.you.capitalize}} will need to {{register_link}} first before {{t.base.you}} can {{t.base.login}}."
       use_browserid: "Use {{t.base.browserid}}"
+      usually_use_browserid: "Do you usually use {{t.base.browserid}} to {{t.base.login}}? If so, you'll need to request a {{t.base.password}} (if you haven't already): {{generate_password_link}}."
+      usually_use_normal_login_1: "Do you usually NOT use {{t.base.browserid}} to {{t.base.login}}?"
+      usually_use_normal_login_2: "{{t.base.browserid}} is this site's preferred way to login (because it works with a lot of other sites!), please set up your {{t.base.browserid}} account and we'll match it to your existing {{site_name}} account."
+      usually_use_normal_login_3: "Just click \"{{t.base.login.capitalize}} with {{t.base.browserid}}\" to get started signing up with {{t.base.browserid}}."
     signup_as_browserid:
       second_step: "Now that you have created your {{t.base.browserid}}, we need to ask you a few more questions before completing your sign up on the site."
       short_name: "{{t.base.short_name.capitalize}}"

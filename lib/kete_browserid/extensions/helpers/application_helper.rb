@@ -7,8 +7,11 @@ ApplicationHelper.module_eval do
   end
   
   def link_to_login(phrase, url_for_options, html_options)
+    standard_html = link_to_unless_current phrase, url_for_options, html_options
+    return standard_html unless ::KeteBrowserid.supported?(request.user_agent)
+
     html = String.new
-    
+
     # don't make link active for login page
     browserid_login_html = if params[:controller] == 'account' && params[:action] == 'login'
                              t('application_helper.link_to_login.login_with_browserid')
@@ -16,8 +19,9 @@ ApplicationHelper.module_eval do
                              link_for_login_with_browserid
                            end
 
+    
     unless ::KeteBrowserid::REPLACE_EXISTING_LOGIN
-      html = link_to_unless_current phrase, url_for_options, html_options
+      html = standard_html
       html += '</li><li>'
     end
 
@@ -33,6 +37,9 @@ ApplicationHelper.module_eval do
   end
 
   def link_to_register(phrase, url_for_options, html_options)
+    standard_html = link_to_unless_current phrase, url_for_options, html_options
+    return standard_html unless ::KeteBrowserid.supported?(request.user_agent)
+
     html = String.new
     
     # don't make link active for signup page
@@ -43,7 +50,7 @@ ApplicationHelper.module_eval do
                               end
 
     unless ::KeteBrowserid::REPLACE_EXISTING_REGISTER
-      html = link_to_unless_current phrase, url_for_options, html_options
+      html = 
       html += '</li><li>'
     end
 

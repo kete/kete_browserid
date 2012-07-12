@@ -1,17 +1,27 @@
-<fieldset>
-  <% unless ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
-  <h3><%= t '.use_browserid' -%></h3>
-  <% end -%>
+<% if ::KeteBrowserid.supported?(request.user_agent) -%>
+  <fieldset>
+    <% unless ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
+      <h3><%= t '.use_browserid' -%></h3>
+    <% end -%>
 
-  <p><%= t '.register_via_browserid',
-	 :register_link => link_for_register_via_browserid -%></p>
-  <h4><%= link_for_login_with_browserid -%></h4>
-</fieldset>
+    <p><%= t '.register_via_browserid',
+	   :register_link => link_for_register_via_browserid -%></p>
+    <h4><%= link_for_login_with_browserid -%></h4>
 
-<% unless ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
+    <% if ::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
+      <p><%= t '.usually_use_normal_login_1' -%></p>
+      <p><%= t '.usually_use_normal_login_2', :site_name => Kete.pretty_site_name -%></p>
+      <p><%= t '.usually_use_normal_login_3' -%></p>
+    <% end -%>
+  </fieldset>
+<% end -%>
+
+<% if !::KeteBrowserid.supported?(request.user_agent) || !::KeteBrowserid::REPLACE_EXISTING_LOGIN -%>
 <p>&nbsp;</p>
 <fieldset>
-  <h3><%= t '.or_standard_login' -%></h3>
+  <% if ::KeteBrowserid.supported?(request.user_agent) -%>
+    <h3><%= t '.or_standard_login' -%></h3>
+  <% end -%>
 
   <!--[form:login]-->
   <% if Kete.is_configured? -%>
@@ -47,6 +57,15 @@
                                                :action => 'forgot_password',
                                                :urlified_name => @site_basket.urlified_name},
                                              :tabindex => '1') -%></p>
+
+  <% unless ::KeteBrowserid.supported?(request.user_agent) -%>  
+    <p><%=t '.usually_use_browserid',
+            :generate_password_link => link_to(t('.generate_password'),
+                                             { :controller => 'account',
+                                               :action => 'forgot_password',
+                                               :urlified_name => @site_basket.urlified_name},
+                                             :tabindex => '1') -%></p>
+    <% end -%>
   <% end -%>
 </fieldset>
 <% end -%>

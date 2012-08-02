@@ -17,7 +17,7 @@ en:
       title: "The {{t.base.browserid}} part is completed. We have a few questions and then we're done."
       user_name_example: "This is the {{t.base.name}} others will see on {{t.base.your}} {{t.base.profile}} and when you make {{t.base.contribution.pluralize}} to the {{t.base.site}}. If you do not supply one, {{t.base.your}} {{t.base.short_name}} will be used instead. {{t.base.your.capitalize}} {{t.base.username}} can contain spaces. E.g if {{t.base.your}} {{t.base.short_name}} was \"jsmith\" {{t.base.your}} screen {{t.base.name}} could be \"John Smith\"."
   base:
-    browserid: BrowserID
+    browserid: Persona
     short_name: short name
   user_model:
     must_be_unique: "has already been taken"

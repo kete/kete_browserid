@@ -14,7 +14,7 @@ AccountController.class_eval do
   def login_via_browserid
     assertion = params[:assertion]
 
-    browserid_response = Faraday.post 'https://browserid.org/verify', { :assertion => assertion, :audience => Kete.site_url }
+    browserid_response = Faraday.post 'https://verifier.login.persona.org/verify', { :assertion => assertion, :audience => Kete.site_url }
     
     browserid_hash = ::ActiveSupport::JSON.decode(browserid_response.body)
 

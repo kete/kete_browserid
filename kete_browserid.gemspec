@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{kete_browserid}
-  s.version = "0.0.5"
+  s.version = "0.0.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Walter McGinnis"]
-  s.date = %q{2012-08-02}
+  s.date = %q{2013-01-23}
   s.description = %q{An add-on for Kete (http://kete.net.nz) that replaces normal login with a browserid based login.}
   s.email = %q{walter@katipo.co.nz}
   s.extra_rdoc_files = [
